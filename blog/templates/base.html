@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "style.css" %}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+var str=location.href.toLowerCase();
+$("#cssmenu li a").each(function() {
+if (str.indexOf(this.href.toLowerCase()) > -1) {
+ $("li.active").removeClass("active");
+$(this).parent().addClass("active");
+}
+ });
+ })
+
+    </script>
+    <title>My amazing blog</title>
+</head>
+
+<body>
+    <div id='cssmenu'>
+<ul>
+   <li class='active'><a href='/blog/'><span>Home</span></a></li>
+   <li><a href='/blog/post/upload.html'><span>Products</span></a></li>
+   <li><a href='"/blog/post/{{ post.id }}/detail.html"'><span>About</span></a></li>
+   <li><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
