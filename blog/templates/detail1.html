@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block context %}
+<div>                                                                        
+    <h4 class="content">{{ travel.description }}</h4>
+    <h4 class="contact">{{ travel.name }}</h4>                                           
+</div>
+{% endblock %}
+{% block cost %}
+{{travel.name}}
+{% endblock %}
+{% block description %}
+{{travel.description}}
+{% endblock %}

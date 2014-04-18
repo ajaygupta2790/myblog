@@ -38,8 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'bootstrap',
-    'menu',
+     # The default Address and country models
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -54,7 +54,9 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'myblog.urls'
 
 WSGI_APPLICATION = 'myblog.wsgi.application'
-
+TEMPLATE_CONTEXT_PROESSORS = (
+'django.core.context_processors.request',
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -87,7 +89,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+APP_NICE_SHORT_NAME = "MySite" # a short name for your site
+SERVER_EMAIL = "MySite <noreply@example.org>" # From: address on verification emails
+REGISTRATION_ASK_USERNAME = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/

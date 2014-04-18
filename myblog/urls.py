@@ -8,10 +8,7 @@ urlpatterns = patterns('',
     #url(r'^post/(?P<post_id>\d+)/detail.html$',
         #'blog.views.post_detail', name='post_detail'),
     url(r'^blog/', include('blog.urls')),                          
-        
-    # Uncomment the admin/doc line below to enable admin documentation:      
-    #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),           
-                                                                             
+    (r'^shop/', include('shop.urls')),                                                                 
     # Uncomment the next line to enable the admin:                           
     url(r'^admin/', include(admin.site.urls)),                               
 )

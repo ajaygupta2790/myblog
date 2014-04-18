@@ -32,3 +32,18 @@ def post_upload(request):
                                      created_at=datetime.utcnow())
         # No need to call post.save() at this point -- it's already saved.
         return HttpResponseRedirect(reverse('blog.views.post_detail', kwargs={'post_id': post.id}))
+
+def get_travel(request):
+    recent_travel=m.Travel.objects.all()
+    context=Context({
+        'travel_list':recent_travel
+        })
+    return render(request, 'travel.html', context)
+
+def travel_detail(request, travel_id):
+    try:
+        travel = m.Travel.objects.get(pk=travel_id)
+    except m.Travel.DoesNotExist:
+        # If no Post has id post_id, we raise an HTTP 404 error.
+        raise Http404
+    return render(request, 'detail1.html', {'travel': travel})

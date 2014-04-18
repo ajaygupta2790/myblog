@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% if travel_list %}
+    <ul>
+    {% for travel in travel_list %}
+        <li id="content">
+            <a href="/blog/travel/{{ travel.id }}/detail1.html">{{ travel.name }}</a>
+            <span>{{ travel.created_at }}</span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No post is made during the past two days.</p>
+{% endif %}
+{% endblock %}
