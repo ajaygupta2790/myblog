@@ -1,0 +1,4 @@
+src/bootstrap
+src/facebooksdk
+build/
+*.pyc	
