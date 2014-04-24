@@ -19,6 +19,7 @@ class Travel(models.Model):
 	name=models.CharField(max_length=256) 
 	place=models.CharField(max_length=256) 
 	cost=models.CharField(max_length=100)
+
 	Datetime=models.DateTimeField('Datetime available')
 	description=models.TextField()
 	def __unicode__(self):  # Python 3: def __str__(self):

@@ -1,13 +1,72 @@
 {% extends "base.html" %}
-{% block context %}
-<div>                                                                        
-    <h4 class="content">{{ travel.description }}</h4>
-    <h4 class="contact">{{ travel.name }}</h4>                                           
+{% block carousel %}
+{% endblock %}
+{% block content %}
+  <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                        <div class="media">
+                            <a class="pull-left" href="/blog/travel" target="_parent">
+                            <img alt="image" class="img-responsive" src="http://images.prd.mris.com/image/V2/1/Yu59d899Ocpyr_RnF0-8qNJX1oYibjwp9TiLy-bZvU9vRJ2iC1zSQgFwW-fTCs6tVkKrj99s7FFm5Ygwl88xIA.jpg"></a>
+
+                            <div class="clearfix visible-sm"></div>
+
+                            <div class="media-body fnt-smaller">
+                                <a href="#" target="_parent"></a>
+
+                                <h4 class="media-heading">
+                                  <a href="/blog/travel/{{ travel.id }}/detail1.html" target="_parent">{{ travel.name }}<small class="pull-right">609 W Gravers Ln</small></a></h4>
+
+
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                    <li>4,820 SqFt</li>
+
+                                    <li style="list-style: none">|</li>
+
+                                    <li>5 Beds</li>
+
+                                    <li style="list-style: none">|</li>
+
+                                    <li>5 Baths</li>
+                                </ul>
+
+                                <p class="hidden-xs">{{ travel.description }}</p><span class="fnt-smaller fnt-lighter fnt-arial">Courtesy of HS Fox  Roach-Chestnut Hill
+                                Evergreen</span> 
+                            </div>
+                        </div>
+                    </div> <!--End Listing-->
+                    <div class="container">
+	<div class="row">
+    	<div class="col-md-6">
+            <!-- Carousel
+            ================================================== -->
+            <div id="myCarousel" class="carousel slide">
+                 <!-- Indicators -->         
+                <div class="carousel-inner">           
+                    <div class="item active">
+                        <blockquote>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                    </div>
+                    <div class="item">
+                        <blockquote>
+                          <p>Lorems ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                     </div>  
+                    <div class="item">
+                        <blockquote>
+                          <p>Loremss ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                    </div>                                                                                   
+                </div> 
+               <div class="carousel-controls">
+                  <a class="carousel-control left" href="#myCarousel" data-slide="prev"><span class="fa fa-angle-double-left"></span></a>
+                  <a class="carousel-control right" href="#myCarousel" data-slide="next"><span class="fa fa-angle-double-right"></span></a>
+              </div>               
+                                                            
+            </div><!-- End Carousel -->  
+    	</div>
+    </div>
 </div>
-{% endblock %}
-{% block cost %}
-{{travel.name}}
-{% endblock %}
-{% block description %}
-{{travel.description}}
 {% endblock %}

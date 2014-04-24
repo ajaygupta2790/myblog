@@ -8,7 +8,8 @@ urlpatterns = patterns('',
     #url(r'^post/(?P<post_id>\d+)/detail.html$',
         #'blog.views.post_detail', name='post_detail'),
     url(r'^blog/', include('blog.urls')),                          
-    (r'^shop/', include('shop.urls')),                                                                 
-    # Uncomment the next line to enable the admin:                           
+    # Uncomment the next line to enable the admin:
+    # (r'^accounts/', include('registration.backends.default.urls')),  
+    # (r'^accounts/', include('registration.urls')),                         
     url(r'^admin/', include(admin.site.urls)),                               
 )

@@ -8,10 +8,30 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
 <!-- Optional theme -->
+<script type="text/javascript" src="jquery-1.8.0.min.js"></script> 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>!-->
     <script type="text/javascript">
+
+    $(function() {
+      min=0;
+      max=100;
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 100,
+      values: [ min,max ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  });
+
 $(document).ready(function(){
 var str=location.href.toLowerCase();
 $(".nav li a").each(function() {
@@ -44,14 +64,18 @@ $(document).ready( function() {
     clickEvent = false;
   });
 });
+$(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
     </script>
     <title>My amazing blog</title>
 </head>
 
 <body>
-   <div class="navbar navbar-fixed-top">
+   <div class="navbar">
   <div class="container">
-    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar navbar-inverse ">
       
         <div class="navbar-header">
       <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -59,13 +83,14 @@ $(document).ready( function() {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-        <a class="navbar-brand" href="/blog/">FootLoose</a>
+        <a class="navbar-brand" href="/blog/">Project name</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/blog/">Home</a></li>
+            <li class="active"><a href="/blog/travel/travel.html">Home</a></li>
             <li><a href="/blog/post/upload.html">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/blog/">Packages</a></li>
+            <li><a href="/accounts/register/">Register/Login</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -86,7 +111,8 @@ $(document).ready( function() {
   </div><!-- /container -->
 </div><!-- /navbar wrapper -->
 
-<div class="container">
+{% block carousel %}
+<div class="container" align="center">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
     
       <!-- Wrapper for slides -->
@@ -137,60 +163,38 @@ $(document).ready( function() {
 
     </div><!-- End Carousel -->
 </div>
-
+{% endblock %}
+ <div>
+      
+ 
+<form action="" method="post" id="products">
+<div style="margin-left:20px">
+    <label for="amount">Price range:</label>
+    <input type="text" id="amount" name="amount" style="border:0; color:#f6931f; font-weight:bold;" readonly>
+    <br><br>
+    <div id="slider-range" style="width:20%;"></div>
+    <br><br>
+    <input type="submit" value=" Show products " />
+    <br><br>
+</div>
+</form>
 {% block content %}
-{% endblock %}
-{% block context %}
-{% endblock %}
-    <div class="container-fluid" style="background-color:#e8e8e8">
-        <div class="container container-pad" id="property-listings">
-            
-            <div class="row">
-              <div class="col-md-12">
-                <h1>Million Dollar Home Listings</h1>
-                <p>A snippet I recently used to display homes for a local brokerage.  Focused more on images when accessed through mobile</p>
-              </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-sm-6"> 
-
-                    <!-- Begin Listing: 609 W GRAVERS LN-->
-                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-                        <div class="media">
-                            <a class="pull-left" href="#" target="_parent">
-                            <img alt="image" class="img-responsive" src="http://images.prd.mris.com/image/V2/1/Yu59d899Ocpyr_RnF0-8qNJX1oYibjwp9TiLy-bZvU9vRJ2iC1zSQgFwW-fTCs6tVkKrj99s7FFm5Ygwl88xIA.jpg"></a>
-
-                            <div class="clearfix visible-sm"></div>
-
-                            <div class="media-body fnt-smaller">
-                                <a href="#" target="_parent"></a>
-
-                                <h4 class="media-heading">
-                                  <a href="#" target="_parent">{% block cost%}{% endblock%} <small class="pull-right">609 W Gravers Ln</small></a></h4>
-
-
-                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                                    <li>4,820 SqFt</li>
-
-                                    <li style="list-style: none">|</li>
-
-                                    <li>5 Beds</li>
-
-                                    <li style="list-style: none">|</li>
-
-                                    <li>5 Baths</li>
-                                </ul>
-
-                                <p class="hidden-xs">{% block description %}{% endblock %}
-                                ...</p><span class="fnt-smaller fnt-lighter fnt-arial">Courtesy of HS Fox & Roach-Chestnut Hill
-                                Evergreen</span>
-                            </div>
-                        </div>
-                    </div><!-- End Listing-->
-                </div><!-- End Col -->
-            </div><!-- End row -->
-        </div><!-- End container -->
+<div class="container">
+    <div class="well well-sm">
+        <strong>Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
     </div>
+    <div id="products" class="row list-group">
+      
+      {% endblock %}
+        </div>
+    </div>
+</div>
+
+    
 </body>
 </html>
