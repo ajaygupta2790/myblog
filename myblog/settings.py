@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'south'
     # 'django_wysiwyg',
     #'registration',
      # The default Address and country models
