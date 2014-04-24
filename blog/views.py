@@ -55,7 +55,7 @@ def get_travel(request):
 
 def travel_detail(request, travel_id):
     try:
-        travel = m.Travel.objects.get(pk=travel_id)
+        travel = m.Travel.objects.get(slug=travel_id)
     except m.Travel.DoesNotExist:
         # If no Post has id post_id, we raise an HTTP 404 error.
         raise Http404

@@ -37,7 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'south'
+    'south',
+    'ckeditor',
+    'autoslug'
     # 'django_wysiwyg',
     #'registration',
      # The default Address and country models
@@ -106,3 +108,6 @@ REGISTRATION_ASK_USERNAME = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+CKEDITOR_UPLOAD_PATH = '/home/hardkill/blogassets/media'
+STATIC_ROOT = '/home/hardkill/blogassets/static'
+MEDIA_URL = '/media/'

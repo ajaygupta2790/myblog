@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # (r'^accounts/', include('registration.backends.default.urls')),  
     # (r'^accounts/', include('registration.urls')),                         
-    url(r'^admin/', include(admin.site.urls)),                               
+    url(r'^admin/', include(admin.site.urls)), 
+    url(r'^ckeditor/', include('ckeditor.urls')),                              
 )
